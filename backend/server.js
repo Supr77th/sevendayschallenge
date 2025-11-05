@@ -282,9 +282,11 @@ app.get('/api/tasks', async (req, res) => {
   }
 });
 
+
 // Initialize and start server
+// Initialize and export the app for serverless deployment
 initializeDataFiles().then(() => {
-  app.listen(PORT, () => {
-    console.log(`7 Jacked server running on port ${PORT}`);
-  });
+  console.log('Data files initialized successfully');
 });
+
+module.exports = app;

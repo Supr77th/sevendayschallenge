@@ -1,4 +1,0 @@
-reauth attempt
-reauth-check
-auth test
-auth test
