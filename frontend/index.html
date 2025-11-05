@@ -61,24 +61,23 @@
 </div>
         <!-- Main Content -->
         <main id="mainContent" class="main-content">
-        <div id="lockedScreen" class="locked-screen hidden">
+        <!-- Locked Screen - Achievement Card -->
+<div id="lockedScreen" class="locked-screen hidden">
     <div class="locked-content">
         <!-- Achievement Header -->
         <div class="achievement-header">
             <div class="achievement-icon">🔥</div>
             <h3 class="achievement-title">DAY <span id="lockedDayNumber">1</span> COMPLETE</h3>
-            <p class="locked-subtitle">Goal Hit. Next Tier.</p>
         </div>
 
-        <!-- Progress Ring -->
-        <div class="progress-ring-container">
-            <svg class="progress-ring" width="200" height="200">
-                <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
-                <circle class="progress-ring-circle" id="progressRingCircle" cx="100" cy="100" r="90" />
-            </svg>
-            <div class="progress-ring-text">
-                <span class="progress-number" id="progressPercentage">14%</span>
-                <span class="progress-label">COMPLETE</span>
+        <!-- Progress Bar (NEW) -->
+        <div class="locked-progress-container">
+            <div class="locked-progress-header">
+                <span class="locked-progress-percentage" id="lockedProgressPercentage">14%</span>
+                <span class="locked-progress-label">COMPLETE</span>
+            </div>
+            <div class="locked-progress-bar">
+                <div class="locked-progress-fill" id="lockedProgressFill"></div>
             </div>
         </div>
 
@@ -106,6 +105,11 @@
             <div class="countdown">
                 <span id="countdownTimer">--:--:--</span>
             </div>
+        </div>
+
+        <!-- Restart Button -->
+        <div class="locked-restart-section">
+            <button id="lockedRestartBtn" class="btn btn-locked-restart">RESTART CHALLENGE</button>
         </div>
 
         <!-- Footer with Branding and Timestamp -->

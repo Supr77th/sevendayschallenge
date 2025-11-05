@@ -156,6 +156,10 @@ function toggleTask(index) {
     updateSubmitButton();
 }
 
+document.getElementById('lockedRestartBtn').addEventListener('click', () => {
+    showModal();
+}); 
+
 function updateTaskProgress() {
     const completed = appState.completedTasks.size;
     const total = appState.tasks.length;
@@ -190,13 +194,21 @@ function showLockedScreen(nextUnlockTime, completedDay) {
     document.getElementById('statDays').textContent = daysCompleted;
     document.getElementById('statTasks').textContent = tasksCompleted;
     document.getElementById('statProgress').textContent = percentage + '%';
-    document.getElementById('progressPercentage').textContent = percentage + '%';
     
-    // Animate progress ring
-    const circle = document.getElementById('progressRingCircle');
-    const circumference = 2 * Math.PI * 90; // radius = 90
-    const offset = circumference - (percentage / 100) * circumference;
-    circle.style.strokeDashoffset = offset;
+    // Update progress bar
+    const progressPercentage = document.getElementById('lockedProgressPercentage');
+    const progressFill = document.getElementById('lockedProgressFill');
+    
+    if (progressPercentage) {
+        progressPercentage.textContent = percentage + '%';
+    }
+    
+    if (progressFill) {
+        // Animate progress bar
+        setTimeout(() => {
+            progressFill.style.width = percentage + '%';
+        }, 100);
+    }
     
     // Update timestamp
     const now = new Date();
@@ -207,7 +219,11 @@ function showLockedScreen(nextUnlockTime, completedDay) {
     const displayHours = hours % 12 || 12;
     const displayMinutes = minutes.toString().padStart(2, '0');
     const timestamp = `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()} • ${displayHours}:${displayMinutes} ${ampm}`;
-    document.getElementById('completionTimestamp').textContent = timestamp;
+    
+    const timestampElement = document.getElementById('completionTimestamp');
+    if (timestampElement) {
+        timestampElement.textContent = timestamp;
+    }
     
     startCountdownToMidnight(nextUnlockTime);
 }
@@ -295,7 +311,7 @@ elements.resetBtn.addEventListener('click', () => {
     showModal();
 });
 
- elements.restartComplete.addEventListener('click', async () => {
+elements.restartComplete.addEventListener('click', async () => {
     incrementAttempts();
     await resetProgress();
     hideCompleteScreen();
@@ -350,7 +366,7 @@ async function loadApp() {
         const completedDay = progress.currentDay - 1;
         showLockedScreen(progress.nextUnlockTime, completedDay);
         return;
-    } 
+    }
 
     // Load current day tasks
     console.log('Loading tasks for day:', progress.currentDay); // DEBUG LINE

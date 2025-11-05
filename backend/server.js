@@ -9,12 +9,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
   origin: [
-      'http://localhost:8000',
-      'https://projectsevendays.netlify.app',  // Your Netlify URL
-      'https://magical-unicorn-123456.netlify.app'  // If you kept the random URL
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5500"
   ],
   credentials: true
 }));
+
 app.use(express.json());
 
 // File paths
@@ -282,8 +283,4 @@ app.get('/api/tasks', async (req, res) => {
 });
 
 // Initialize and start server
-initializeDataFiles().then(() => {
-  app.listen(PORT, () => {
-    console.log(`7 Jacked server running on port ${PORT}`);
-  });
-});
+app.listen(PORT, () => console.log("Server running on port", PORT));
