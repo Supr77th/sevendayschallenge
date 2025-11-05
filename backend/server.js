@@ -10,8 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({
   origin: [
       'http://localhost:8000',
-      'https://75-jacked.netlify.app',  // Your Netlify URL
-      'https://delightful-capybara-b9e6e6.netlify.app'  // If you kept the random URL
+      'https://projectsevendays.netlify.app',  // Your Netlify URL
+      'https://magical-unicorn-123456.netlify.app'  // If you kept the random URL
   ],
   credentials: true
 }));
