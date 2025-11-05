@@ -1,16 +1,11 @@
 {
-    "version": 2,
-    "public": true,
-    "builds": [
-      {
-        "src": "index.html",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/index.html"
-      }
-    ]
-  }
+  "version": 2,
+  "public": true,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(css|js|images|assets)/(.*)", "dest": "/$1/$2" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
