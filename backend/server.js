@@ -9,12 +9,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors({
   origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:5500"
+    "http://localhost:3000",        // if testing locally
+    "http://localhost:5173",        // if using Vite locally
+    "https://projectsevendays.netlify.app" // <--- your Netlify live URL
   ],
   credentials: true
 }));
+
 
 app.use(express.json());
 
