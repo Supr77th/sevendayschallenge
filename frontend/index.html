@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>se7en</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome/Loading Screen -->
+<div id="welcomeScreen" class="welcome-screen">
+    <div class="welcome-content">
+        <h1 class="welcome-logo">Project Seven</h1>
+        <div class="welcome-message">
+            <p class="welcome-text">For seven days, you'll practice small, foundational habits that support your body, mind, discipline, creativity, and curiosity.</p>
+            <p class="welcome-text">TBH. These aren't challenges but they're basic human habits we once lived by, now buried under constant scrolling and digital overload.</p>
+            <p class="welcome-text">This is a gentle reset, a return to presence, clarity, and self-direction.</p>
+            <p class="welcome-text-bold">Commit to all seven days and we'll meet on the other side.</p>
+        </div>
+        <button id="letsGoBtn" class="btn btn-lets-go">LET'S GO!</button>
+    </div>
+</div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">SEVEN</h1>
+        </header>
+
+        <!-- Day Info Bar -->
+        <div class="day-info-bar">
+            <div class="day-info-left">
+                <h2 class="day-title">DAY <span id="currentDayNum">1</span>/7</h2>
+                <p class="day-status" id="dayStatus"></p>
+            </div>
+            <div class="day-info-right">
+                <p class="end-date">END: <span id="endDate">Nov 9</span></p>
+                <p class="attempt-number">ATTEMPT #<span id="attemptNumber">1</span></p>
+            </div>
+        </div>
+
+        <!-- Challenge Complete Screen -->
+        <!-- Challenge Complete Screen -->
+<div id="completeScreen" class="complete-screen hidden">
+    <div class="complete-content">
+        <h2 class="complete-title">AMAZING WORK!</h2>
+        <p class="complete-text">You've conquered all 7 days.</p>
+        <div class="complete-message">
+            <p class="complete-congrats">Respect for making it this far.</p>
+            <p class="complete-invitation">If this experience felt meaningful, you're invited to continue the journey.</p>
+            <p class="complete-invitation">We're building a community focused on digital detox, anti-doomscrolling, and conscious living.</p>
+            <p class="complete-invitation">A place to create things instead of just consuming.</p>
+            <a href="https://discord.gg/DDYQxRdJN" target="_blank" rel="noopener noreferrer" class="discord-link" id="discordLink">
+                <svg class="discord-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Join Discord Community
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+        <!-- Main Content -->
+        <main id="mainContent" class="main-content">
+        <div id="lockedScreen" class="locked-screen hidden">
+    <div class="locked-content">
+        <!-- Achievement Header -->
+        <div class="achievement-header">
+            <div class="achievement-icon">🔥</div>
+            <h3 class="achievement-title">DAY <span id="lockedDayNumber">1</span> COMPLETE</h3>
+            <p class="locked-subtitle">Goal Hit. Next Tier.</p>
+        </div>
+
+        <!-- Progress Ring -->
+        <div class="progress-ring-container">
+            <svg class="progress-ring" width="200" height="200">
+                <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+                <circle class="progress-ring-circle" id="progressRingCircle" cx="100" cy="100" r="90" />
+            </svg>
+            <div class="progress-ring-text">
+                <span class="progress-number" id="progressPercentage">14%</span>
+                <span class="progress-label">COMPLETE</span>
+            </div>
+        </div>
+
+        <!-- Stats Display -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value" id="statDays">1</div>
+                <div class="stat-label">DAYS</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value" id="statTasks">5</div>
+                <div class="stat-label">TASKS</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-value" id="statProgress">14%</div>
+                <div class="stat-label">PROGRESS</div>
+            </div>
+        </div>
+
+        <!-- Countdown Section -->
+        <div class="unlock-section">
+            <p class="unlock-label">NEXT DAY UNLOCKS IN</p>
+            <div class="countdown">
+                <span id="countdownTimer">--:--:--</span>
+            </div>
+        </div>
+
+        <!-- Footer with Branding and Timestamp -->
+        <div class="achievement-footer">
+            <div class="brand-tag">75 JACKED</div>
+            <div class="timestamp" id="completionTimestamp">Nov 4, 2025 • 3:45 PM</div>
+        </div>
+    </div>
+</div>
+            <!-- Tasks -->
+            <div id="tasksContainer" class="tasks-container">
+                <div class="tasks-list" id="tasksList">
+                    <!-- Tasks will be loaded here -->
+                </div>
+
+                <!-- Task Progress -->
+                <div class="task-progress-container">
+                    <div class="task-progress-label"><span id="taskProgressCount">0</span>/<span id="taskProgressTotal">0</span> COMPLETE</div>
+                    <div class="task-progress-bar">
+                        <div id="taskProgressFill" class="task-progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Notes Section -->
+                <div class="notes-section">
+                    <label for="dayNotes" class="notes-label">NOTES</label>
+                    <textarea 
+                        id="dayNotes" 
+                        class="notes-input" 
+                        placeholder="Optional daily notes..."
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="submitBtn" class="btn btn-submit" disabled>
+                        COMPLETE DAY <span id="submitDay">1</span>
+                    </button>
+                    <button id="resetBtn" class="btn btn-reset">RESTART</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="modal-title">RESTART CHALLENGE?</h3>
+            <p class="modal-text">This will reset all your progress. Are you sure?</p>
+            <div class="modal-buttons">
+                <button id="confirmReset" class="btn btn-primary">YES, RESTART</button>
+                <button id="cancelReset" class="btn btn-secondary">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
