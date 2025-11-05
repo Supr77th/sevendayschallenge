@@ -20,15 +20,15 @@ body {
     color: var(--white);
     line-height: 1.4;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 30px 40px;
+    padding: 24px 32px;
     height: 100vh;
-    display: flex;
+    display: flex-start;
     flex-direction: column;
 }
 
@@ -39,13 +39,19 @@ body {
 }
 
 .logo {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 0.95;
 }
 
+@media (max-width: 600px) {
+    .logo {
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+  }
 
 
 .tagline {
@@ -410,21 +416,25 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
 }
 
-.tasks-list {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 20px;
-  padding: 25px;
-  background: #111;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(255,255,255,0.1);
 
-  /* hide scrollbar but keep scrolling */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer/Edge */
+.tasks-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* even spacing for all tasks */
+    margin-bottom: 20px;
+    padding: 25px 10px;
+    background: #111;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    overflow: visible; /* no scroll */
+    min-height: 60vh; /* ensure enough space on mobile */
 }
 
 .tasks-list::-webkit-scrollbar {
@@ -434,11 +444,17 @@ body {
 .task-item {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--gray-border);
     transition: var(--transition);
     cursor: pointer;
     position: relative;
+    min-height: 10vh; /* each task gets enough height */
+    font-size: 1.1rem;
+}
+
+.task-item:last-child {
+    border-bottom: none;
 }
 
 .task-item:hover {
@@ -560,6 +576,18 @@ body {
     opacity: 0.7;
     font-weight: 500;
     letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+    .tasks-list {
+        padding: 10px 2px;
+        min-height: 70vh;
+    }
+    .task-item {
+        min-height: 12vh;
+        font-size: 1rem;
+        padding: 8px 0;
+    }
 }
 
 /* Notes */

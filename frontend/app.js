@@ -344,13 +344,13 @@ async function loadApp() {
     }
 
     // Check if locked
-   /*if (progress.isLocked) {
+    if (progress.isLocked) {
         console.log('Locked until:', new Date(progress.nextUnlockTime)); // DEBUG LINE
         elements.dayStatus.textContent = '';
         const completedDay = progress.currentDay - 1;
         showLockedScreen(progress.nextUnlockTime, completedDay);
         return;
-    } */
+    } 
 
     // Load current day tasks
     console.log('Loading tasks for day:', progress.currentDay); // DEBUG LINE

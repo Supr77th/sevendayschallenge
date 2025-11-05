@@ -7,15 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-// Middleware
-app.use(cors({
-  origin: [
-      'http://localhost:8000',
-      'https://sevendays-chi.vercel.app/' // Add your frontend URL
-  ],
-  credentials: true
-}));
-app.use(express.json());
+app.use(cors());
 app.use(express.json());
 
 // File paths
@@ -282,11 +274,9 @@ app.get('/api/tasks', async (req, res) => {
   }
 });
 
-
 // Initialize and start server
-// Initialize and export the app for serverless deployment
 initializeDataFiles().then(() => {
-  console.log('Data files initialized successfully');
+  app.listen(PORT, () => {
+    console.log(`7 Jacked server running on port ${PORT}`);
+  });
 });
-
-module.exports = app;
