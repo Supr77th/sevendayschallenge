@@ -1,13 +1,14 @@
+// API Configuration
 const CONFIG = {
     API_URL: window.location.hostname === 'localhost' 
         ? 'http://localhost:3000/api' 
-        : 'https://your-backend-url.vercel.app/api', // We'll update this later
-    USER_ID: 'user_' + (localStorage.getItem('sevendays_user_id') || generateUserId())
+        : 'https://YOUR-BACKEND-URL.vercel.app/api', // Replace with your actual backend URL
+    USER_ID: 'user_' + (localStorage.getItem('7jacked_user_id') || generateUserId())
 };
 
 function generateUserId() {
     const id = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('sevendays_user_id', id.replace('user_', ''));
+    localStorage.setItem('7jacked_user_id', id.replace('user_', ''));
     return id.replace('user_', '');
 }
 
