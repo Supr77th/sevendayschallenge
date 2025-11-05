@@ -7,7 +7,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+// Middleware
+app.use(cors({
+  origin: [
+      'http://localhost:8000',
+      'https://sevendays-chi.vercel.app/' // Add your frontend URL
+  ],
+  credentials: true
+}));
+app.use(express.json());
 app.use(express.json());
 
 // File paths
