@@ -30,7 +30,7 @@ const elements = {
     dayNotes: document.getElementById('dayNotes'),
     submitBtn: document.getElementById('submitBtn'),
     resetBtn: document.getElementById('resetBtn'),
-    /*restartComplete: document.getElementById('restartComplete'),*/
+    restartComplete: document.getElementById('restartComplete'),
     confirmModal: document.getElementById('confirmModal'),
     confirmReset: document.getElementById('confirmReset'),
     cancelReset: document.getElementById('cancelReset')
@@ -295,12 +295,12 @@ elements.resetBtn.addEventListener('click', () => {
     showModal();
 });
 
-/* elements.restartComplete.addEventListener('click', async () => {
+ elements.restartComplete.addEventListener('click', async () => {
     incrementAttempts();
     await resetProgress();
     hideCompleteScreen();
     loadApp();
-}); */
+});
 
 elements.confirmReset.addEventListener('click', async () => {
     incrementAttempts();
