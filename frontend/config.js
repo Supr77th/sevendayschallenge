@@ -1,8 +1,8 @@
 // API Configuration
 const CONFIG = {
     API_URL: window.location.hostname === 'localhost' 
-        ? 'http://localhost:3000/api' 
-        : 'https://sevendayschallenge.onrender.com/api', // Make sure this matches
+        ? 'http://localhost:3000/api'
+        : 'https://projectsevendays.netlify.app/api', // Make sure this matches
     USER_ID: 'user_' + (localStorage.getItem('7jacked_user_id') || generateUserId())
 };
 
