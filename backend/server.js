@@ -7,7 +7,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+      'http://localhost:8000',
+      'https://75-jacked.netlify.app',  // Your Netlify URL
+      'https://delightful-capybara-b9e6e6.netlify.app'  // If you kept the random URL
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // File paths
