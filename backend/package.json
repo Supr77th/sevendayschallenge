@@ -4,7 +4,7 @@
   "description": "Backend server for 7 Jacked fitness challenge platform",
   "main": "server.js",
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "scripts": {
     "start": "node server.js",
